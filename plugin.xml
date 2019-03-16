@@ -38,5 +38,5 @@
 
     <source-file src="src/android/CheckMockLocationsEnabled.java" target-dir="src/com/shubbak/plugins/" />
   </platform>
-  
+
 </plugin>
