@@ -18,11 +18,11 @@ public class CheckMockLocationsEnabled extends CordovaPlugin {
         /*callbackContext.success(1);
         return true;*/
 
-        if (action.equals("check")) {
+        //if (action.equals("check")) {
             this.check(callbackContext);
             return true;
-        }
-        return false;
+        //}
+        //return false;
 
     }
 
