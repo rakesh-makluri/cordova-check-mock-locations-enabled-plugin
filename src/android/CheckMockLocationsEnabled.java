@@ -32,9 +32,9 @@ public class CheckMockLocationsEnabled extends CordovaPlugin {
 
         //   if (Settings.Secure.getString(this.cordova.getActivity().getContentResolver(), Settings.Secure.ALLOW_MOCK_LOCATION).equals("0")) {
         if(location.isFromMockProvider()) {
-              callbackContext.success(1);
+              callbackContext.success("From Mock Provider");
           } else {
-              callbackContext.success(0);
+              callbackContext.success("Not From Mock Provider");
           }
       } catch (Exception e) {
         callbackContext.error(e.getMessage());
