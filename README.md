@@ -4,7 +4,7 @@ A plugin to detect if "Allow Mock Locations" is enabled on <strong><bold>Android
 
 ### Installation:
 ```
-cordova plugin add cordova plugin add https://github.com/RashadSaleh/cordova-check-mock-locations-enabled-plugin.git.git
+cordova plugin add cordova plugin add https://github.com/rakesh-makluri/cordova-check-mock-locations-enabled-plugin.git
 ```
 
 ### How to use:
