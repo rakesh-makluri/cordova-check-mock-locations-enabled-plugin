@@ -8,6 +8,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import 	android.provider.Settings;
+import 	android.os.Bundle;
+
 import android.location.Location;
 import android.location.LocationManager;
 import android.location.LocationListener;
@@ -26,11 +28,13 @@ public class CheckMockLocationsEnabled extends CordovaPlugin implements Location
             // return true;
         //}
         //return false;
-        if(this.mockLocationEnabled) {
-            callbackContext.success("From Mock Provider");
-        } else {
-            callbackContext.success("Real Location");
-        }
+        // if(this.mockLocationEnabled) {
+        //     callbackContext.success("From Mock Provider");
+        // } else {
+        //     callbackContext.success("Real Location");
+        // }
+
+        this.check(callbackContext);
 
         return true;
     }
@@ -39,6 +43,18 @@ public class CheckMockLocationsEnabled extends CordovaPlugin implements Location
     public void onLocationChanged(Location location) {
         this.mockLocationEnabled = location.isFromMockProvider();
     }
+
+    @Override
+    public void onProviderDisabled(String location) {
+    }
+
+    @Override
+    public void onProviderEnabled(String location) {
+    }
+
+     @Override
+     public void onStatusChanged(String location, int status, Bundle extras) {
+     }
 
     private void check(CallbackContext callbackContext) {
     //   try {
@@ -58,5 +74,14 @@ public class CheckMockLocationsEnabled extends CordovaPlugin implements Location
     //   } catch (Exception e) {
     //     callbackContext.error(e.getMessage());
     //   }
+        try {
+            if(this.mockLocationEnabled) {
+                callbackContext.success("From Mock Provider");
+            } else {
+                callbackContext.success("Real Location");
+            }
+        } catch(Exception e) {
+            callbackContext.error(e.getMessage());
+        }
     }
 }
